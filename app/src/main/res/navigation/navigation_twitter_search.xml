@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_twitter_search"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.pairdev.twittersearch.SearchFragment"
+        android:label="search_fragment"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_tweetListFragment"
+            app:destination="@id/tweetListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tweetListFragment"
+        android:name="com.pairdev.twittersearch.TweetListFragment"
+        android:label="fragment_tweet_list"
+        tools:layout="@layout/fragment_tweet_list" >
+        <action
+            android:id="@+id/action_tweetListFragment_to_timelineFragment"
+            app:destination="@id/timelineFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/timelineFragment"
+        android:name="com.pairdev.twittersearch.TimelineFragment"
+        android:label="timeline_fragment"
+        tools:layout="@layout/fragment_timeline" />
+</navigation>
