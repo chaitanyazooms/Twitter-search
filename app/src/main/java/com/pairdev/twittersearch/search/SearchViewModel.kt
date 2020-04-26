@@ -1,4 +1,4 @@
-package com.pairdev.twittersearch
+package com.pairdev.twittersearch.search
 
 import androidx.lifecycle.ViewModel
 
