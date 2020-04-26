@@ -5,13 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.pairdev.twittersearch.core.models.Tweet
-import com.pairdev.twittersearch.core.models.User
 
-@Database(entities = [Tweet::class, User::class], version = 1)
+@Database(entities = [Tweet::class], exportSchema = true, version = 1)
 abstract class TwitterDatabase : RoomDatabase() {
 
     abstract fun tweetDao(): TweetDao
-    abstract fun userDao(): UserDao
 
     companion object {
         @Volatile
@@ -30,6 +28,7 @@ abstract class TwitterDatabase : RoomDatabase() {
                     "twitter_database"
                 )
                     .fallbackToDestructiveMigration()
+
                     .build()
 
                 INSTANCE = instance

@@ -1,4 +1,4 @@
-package com.pairdev.twittersearch
+package com.pairdev.twittersearch.timeline
 
 import android.content.Context
 import android.os.Bundle
@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.pairdev.twittersearch.R
 
-import com.pairdev.twittersearch.dummy.DummyContent
-import com.pairdev.twittersearch.dummy.DummyContent.DummyItem
+import com.pairdev.twittersearch.timeline.DummyContent.DummyItem
 
 /**
  * A fragment representing a list of Items.
@@ -38,7 +38,11 @@ class TweetListFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = TweetRecyclerViewAdapter(DummyContent.ITEMS, listener)
+                adapter =
+                    TweetRecyclerViewAdapter(
+                        DummyContent.ITEMS,
+                        listener
+                    )
             }
         }
         return view

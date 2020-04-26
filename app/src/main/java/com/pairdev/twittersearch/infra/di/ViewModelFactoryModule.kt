@@ -1,6 +1,7 @@
-package com.pairdev.twittersearch.infra
+package com.pairdev.twittersearch.infra.di
 
 import androidx.lifecycle.ViewModelProvider
+import com.pairdev.twittersearch.infra.di.AppViewModelFactory
 import dagger.Binds
 import dagger.Module
 

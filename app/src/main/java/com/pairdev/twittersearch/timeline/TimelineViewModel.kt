@@ -1,4 +1,4 @@
-package com.pairdev.twittersearch
+package com.pairdev.twittersearch.timeline
 
 import androidx.lifecycle.ViewModel
 

@@ -10,12 +10,12 @@ import com.pairdev.twittersearch.core.models.Tweet
 @Dao
 interface TweetDao {
 
-    @Query("SELECT * FROM Tweet")
+    @Query("SELECT * FROM table_tweet")
     fun getAllTweets(): LiveData<List<Tweet>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(tweet: Tweet)
 
-    @Query("DELETE FROM Tweet")
+    @Query("DELETE FROM table_tweet")
     suspend fun deleteAll()
 }

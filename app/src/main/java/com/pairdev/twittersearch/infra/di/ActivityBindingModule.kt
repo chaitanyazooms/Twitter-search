@@ -1,4 +1,4 @@
-package com.pairdev.twittersearch.infra
+package com.pairdev.twittersearch.infra.di
 
 import com.pairdev.twittersearch.search.MainActivity
 import com.pairdev.twittersearch.search.di.MainActivityBindingModule
@@ -9,5 +9,5 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector(modules = [MainActivityBindingModule::class])
-    abstract fun searchActivity(): MainActivity
+    abstract fun bindMainActivity(): MainActivity
 }

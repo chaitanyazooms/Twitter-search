@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/tweetListFragment"
-        android:name="com.pairdev.twittersearch.TweetListFragment"
+        android:name="com.pairdev.twittersearch.timeline.TweetListFragment"
         android:label="fragment_tweet_list"
         tools:layout="@layout/fragment_tweet_list" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/timelineFragment"
-        android:name="com.pairdev.twittersearch.TimelineFragment"
+        android:name="com.pairdev.twittersearch.timeline.TimelineFragment"
         android:label="timeline_fragment"
         tools:layout="@layout/fragment_timeline" />
 </navigation>

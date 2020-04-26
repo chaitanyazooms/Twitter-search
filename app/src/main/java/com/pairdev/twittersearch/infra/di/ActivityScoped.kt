@@ -1,4 +1,4 @@
-package com.pairdev.twittersearch.infra
+package com.pairdev.twittersearch.infra.di
 
 import java.lang.annotation.Documented
 import javax.inject.Scope
@@ -30,4 +30,5 @@ import javax.inject.Scope
 @Scope
 @kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
 annotation class ActivityScoped
+
 

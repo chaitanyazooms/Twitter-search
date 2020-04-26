@@ -1,4 +1,4 @@
-package com.pairdev.twittersearch.dummy
+package com.pairdev.twittersearch.timeline
 
 import java.util.ArrayList
 import java.util.HashMap
@@ -26,7 +26,9 @@ object DummyContent {
     init {
         // Add some sample items.
         for (i in 1..COUNT) {
-            addItem(createDummyItem(i))
+            addItem(
+                createDummyItem(i)
+            )
         }
     }
 
@@ -36,7 +38,11 @@ object DummyContent {
     }
 
     private fun createDummyItem(position: Int): DummyItem {
-        return DummyItem(position.toString(), "Item " + position, makeDetails(position))
+        return DummyItem(
+            position.toString(),
+            "Item " + position,
+            makeDetails(position)
+        )
     }
 
     private fun makeDetails(position: Int): String {

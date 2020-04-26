@@ -1,0 +1,58 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "bfafd1cc2e1d58060ee06d1eedd09152",
+    "entities": [
+      {
+        "tableName": "table_tweet",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idStr` TEXT NOT NULL, `text` TEXT NOT NULL, `user_idStr` TEXT NOT NULL, `user_screenName` TEXT NOT NULL, `user_profileImageUrlHttps` TEXT NOT NULL, PRIMARY KEY(`idStr`))",
+        "fields": [
+          {
+            "fieldPath": "idStr",
+            "columnName": "idStr",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user.idStr",
+            "columnName": "user_idStr",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user.screenName",
+            "columnName": "user_screenName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user.profileImageUrlHttps",
+            "columnName": "user_profileImageUrlHttps",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idStr"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bfafd1cc2e1d58060ee06d1eedd09152')"
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-package com.pairdev.twittersearch.infra
+package com.pairdev.twittersearch.infra.di
 
 import javax.inject.Scope
 

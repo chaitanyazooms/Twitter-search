@@ -1,14 +1,15 @@
-package com.pairdev.twittersearch
+package com.pairdev.twittersearch.timeline
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.pairdev.twittersearch.R
 
 
-import com.pairdev.twittersearch.TweetListFragment.OnListFragmentInteractionListener
-import com.pairdev.twittersearch.dummy.DummyContent.DummyItem
+import com.pairdev.twittersearch.timeline.TweetListFragment.OnListFragmentInteractionListener
+import com.pairdev.twittersearch.timeline.DummyContent.DummyItem
 
 import kotlinx.android.synthetic.main.fragment_tweet_list_content.view.*
 
