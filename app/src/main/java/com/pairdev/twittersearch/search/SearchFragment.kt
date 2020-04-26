@@ -1,32 +1,38 @@
 package com.pairdev.twittersearch.search
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.pairdev.twittersearch.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.pairdev.twittersearch.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SearchFragment()
-    }
+    private val viewModel: SearchViewModel by viewModels()
 
-    private lateinit var viewModel: SearchViewModel
+    private lateinit var binding: FragmentSearchBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_search, container, false)
+        binding = FragmentSearchBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(SearchViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupView()
     }
 
+    private fun setupView() {
+        binding.searchButton.setOnClickListener {
+            val searchText = binding.searchTextInputLayout.editText?.text.toString()
+
+            viewModel.onSearchClick(searchText)
+        }
+    }
 }

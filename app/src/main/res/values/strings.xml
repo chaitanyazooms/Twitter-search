@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Twitter Search</string>
+    <string name="hint_search_tweets">Search tweets</string>
+    <string name="search">Search</string>
 </resources>
