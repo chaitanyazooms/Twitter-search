@@ -11,8 +11,9 @@ import javax.inject.Singleton
 
 val baseURL = "https://api.twitter.com/1.1/"
 
-@Singleton
+//@Singleton
 class ApiServiceProvider @Inject constructor() {
+
     val retrofitBuilder by lazy {
         Retrofit.Builder()
             .baseUrl(baseURL)

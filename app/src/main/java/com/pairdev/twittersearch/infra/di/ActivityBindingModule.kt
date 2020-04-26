@@ -1,7 +1,7 @@
 package com.pairdev.twittersearch.infra.di
 
-import com.pairdev.twittersearch.search.MainActivity
-import com.pairdev.twittersearch.search.di.MainActivityBindingModule
+import com.pairdev.twittersearch.main.MainActivity
+import com.pairdev.twittersearch.main.di.MainActivityBindingModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

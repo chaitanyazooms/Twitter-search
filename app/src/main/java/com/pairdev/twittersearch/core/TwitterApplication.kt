@@ -10,6 +10,7 @@ import dagger.android.HasActivityInjector
 import javax.inject.Inject
 
 class TwitterApplication : Application(), HasActivityInjector {
+
     @Inject
     lateinit var activityInjector: DispatchingAndroidInjector<Activity>
 

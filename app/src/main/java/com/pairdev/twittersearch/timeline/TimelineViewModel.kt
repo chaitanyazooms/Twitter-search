@@ -1,7 +1,8 @@
 package com.pairdev.twittersearch.timeline
 
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class TimelineViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class TimelineViewModel @Inject constructor() : ViewModel() {
+
 }
