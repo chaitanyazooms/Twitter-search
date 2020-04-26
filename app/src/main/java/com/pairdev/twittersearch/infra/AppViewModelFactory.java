@@ -37,3 +37,4 @@ public class AppViewModelFactory implements ViewModelProvider.Factory {
         }
     }
 }
+

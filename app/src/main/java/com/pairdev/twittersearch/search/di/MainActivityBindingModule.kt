@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 @Module
-interface SearchActivityBindingModule {
+interface MainActivityBindingModule {
     @FragmentScoped
     @ContributesAndroidInjector(modules = [SearchFragmentBindingModule::class])
     abstract fun bindSearchFragment(): SearchFragment
