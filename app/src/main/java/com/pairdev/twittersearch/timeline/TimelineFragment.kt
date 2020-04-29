@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.pairdev.twittersearch.databinding.FragmentTimelineBinding
 import dagger.android.support.AndroidSupportInjection
@@ -32,5 +33,23 @@ class TimelineFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         AndroidSupportInjection.inject(this)
+
+        setupLiveData()
+
+        viewModel.getTimelineFlow()
+    }
+
+    private fun setupLiveData() {
+        viewModel.timelineLiveData.observe(this, Observer {
+            val sb = StringBuilder()
+            it.forEach {
+                sb.appendln()
+                sb.append(it.user.screenName)
+                sb.appendln()
+                sb.append(it.text)
+            }
+
+            binding.textView.text = sb.toString()
+        })
     }
 }

@@ -52,6 +52,7 @@ class SearchFragment : Fragment() {
             val searchText = binding.searchTextInputLayout.editText?.text.toString()
 
             viewModel.onSearchClick(searchText)
+
         }
     }
 }
