@@ -3,6 +3,7 @@ package com.pairdev.twittersearch.core
 import android.app.Activity
 import android.app.Application
 import com.pairdev.twittersearch.infra.di.ApplicationComponent
+import com.pairdev.twittersearch.infra.di.ApplicationModule
 import com.pairdev.twittersearch.infra.di.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -23,7 +24,9 @@ class TwitterApplication : Application(), HasActivityInjector {
     }
 
     private fun setupDependencyInjection() {
-        applicationComponent = DaggerApplicationComponent.builder().build()
+        applicationComponent = DaggerApplicationComponent.builder()
+            .applicationModule(ApplicationModule(this))
+            .build()
 
         applicationComponent.inject(this)
     }
