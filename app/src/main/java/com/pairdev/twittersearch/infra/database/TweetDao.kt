@@ -16,6 +16,9 @@ interface TweetDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(tweet: Tweet)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(tweets: List<Tweet>)
+
     @Query("DELETE FROM table_tweet")
     suspend fun deleteAll()
 }
