@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.pairdev.twittersearch.databinding.FragmentTimelineBinding
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -20,6 +21,8 @@ class TimelineFragment : Fragment() {
 
     private val viewModel: TimelineViewModel by viewModels(factoryProducer = { viewModelFactory })
 
+    private val timelineAdapter = TimelineAdapter()
+
     private lateinit var binding: FragmentTimelineBinding
 
     override fun onCreateView(
@@ -27,6 +30,7 @@ class TimelineFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentTimelineBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -34,22 +38,23 @@ class TimelineFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         AndroidSupportInjection.inject(this)
 
+        setupView()
         setupLiveData()
 
         viewModel.getTimelineFlow()
     }
 
-    private fun setupLiveData() {
-        viewModel.timelineLiveData.observe(this, Observer {
-            val sb = StringBuilder()
-            it.forEach {
-                sb.appendln()
-                sb.append(it.user.screenName)
-                sb.appendln()
-                sb.append(it.text)
-            }
+    private fun setupView() {
+        binding.timelineRecyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = timelineAdapter
+        }
 
-            binding.textView.text = sb.toString()
+    }
+
+    private fun setupLiveData() {
+        viewModel.timelineLiveData.observe(viewLifecycleOwner, Observer {
+            timelineAdapter.setData(it.orEmpty())
         })
     }
 }
